@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Internships in India</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .search-container {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .search-container input {
+      padding: 10px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .search-container button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .search-container button:hover {
+      background-color: #0056b3;
+    }
+    #internships {
+      list-style: none;
+      padding: 0;
+    }
+    .internship {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .internship h3 {
+      margin: 0 0 10px;
+      color: #2c3e50;
+    }
+    .internship p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .internship a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .internship a:hover {
+      text-decoration: underline;
+    }
+    #loading, #error {
+      text-align: center;
+      color: #555;
+    }
+    #error {
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Latest Internships in India</h1>
+  <div class="search-container">
+    <input type="text" id="skillsInput" placeholder="Enter skills (e.g., Python, Marketing)">
+    <button onclick="fetchInternships()">Search</button>
+  </div>
+  <div id="loading">Loading internships...</div>
+  <div id="error" style="display: none;"></div>
+  <ul id="internships"></ul>
+
+  <script>
+    let debounceTimeout;
+
+    function fetchInternships() {
+      const skills = document.getElementById('skillsInput').value.trim();
+      const baseUrl = 'https://api.adzuna.com/v1/api/jobs/in/search?app_id=a806c721&app_key=99df40037049daba1153ca4e83b50515&results_per_page=20&sort_by=date';
+      const query = skills ? `what=internship%20${encodeURIComponent(skills)}&where=India` : 'what=internship&where=India';
+      const apiUrl = `${baseUrl}&${query}`;
+      
+      const loading = document.getElementById('loading');
+      const errorDiv = document.getElementById('error');
+      const internshipsList = document.getElementById('internships');
+
+      loading.style.display = 'block';
+      errorDiv.style.display = 'none';
+      internshipsList.innerHTML = '';
+
+      // Debounce API call to prevent rapid requests
+      clearTimeout(debounceTimeout);
+      debounceTimeout = setTimeout(async () => {
+        try {
+          const response = await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          
+          loading.style.display = 'none';
+          
+          if (data.results && data.results.length > 0) {
+            // Client-side filtering for additional skill matching
+            const filteredResults = skills ? data.results.filter(job => 
+              job.title.toLowerCase().includes(skills.toLowerCase()) || 
+              job.description.toLowerCase().includes(skills.toLowerCase())
+            ) : data.results;
+
+            if (filteredResults.length > 0) {
+              internshipsList.innerHTML = filteredResults.map(job => `
+                <li class="internship">
+                  <h3>${job.title}</h3>
+                  <p><strong>Location:</strong> ${job.location.display_name}</p>
+                  <p><strong>Description:</strong> ${job.description.substring(0, 100)}...</p>
+                  <p><a href="${job.redirect_url}" target="_blank">Apply Now</a></p>
+                </li>
+              `).join('');
+            } else {
+              errorDiv.textContent = 'No internships match your skills.';
+              errorDiv.style.display = 'block';
+            }
+          } else {
+            errorDiv.textContent = 'No internships found.';
+            errorDiv.style.display = 'block';
+          }
+        } catch (error) {
+          loading.style.display = 'none';
+          errorDiv.textContent = `Error fetching internships: ${error.message}`;
+          errorDiv.style.display = 'block';
+        }
+      }, 300); // 300ms debounce
+    }
+
+    // Fetch internships on page load
+    window.onload = fetchInternships;
+
+    // Add event listener for Enter key
+    document.getElementById('skillsInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        fetchInternships();
+      }
+    });
+  </script>
+</body>
+</html>
