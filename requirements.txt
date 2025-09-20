@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pandas
+beautifulsoup4
+selenium
+webdriver-manager
+scikit-learn
+rapidfuzz
