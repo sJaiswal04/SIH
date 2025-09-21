@@ -1,0 +1,527 @@
+# =====================
+# Technical / Hard Skills
+# =====================
+# IT / Tech / Digital
+Programming Languages
+Python
+Java
+C
+C++
+C#
+JavaScript
+TypeScript
+Ruby
+Go
+Rust
+PHP
+Swift
+Kotlin
+R
+MATLAB
+SQL
+Bash
+Dart
+Scala
+Perl
+Lua
+Julia
+Objective-C
+Visual Basic
+Haskell
+F#
+Groovy
+Frameworks / Libraries
+React
+Angular
+Vue.js
+Django
+Flask
+FastAPI
+Spring
+Spring Boot
+Ruby on Rails
+Laravel
+ASP.NET
+TensorFlow
+PyTorch
+Keras
+Scikit-learn
+HuggingFace Transformers
+OpenCV
+YOLO
+Databases
+MySQL
+PostgreSQL
+Oracle
+SQL Server
+MongoDB
+Redis
+Cassandra
+DevOps / Cloud / Virtualization
+Docker
+Kubernetes
+Terraform
+Ansible
+Jenkins
+GitLab CI/CD
+AWS
+Azure
+GCP
+Heroku
+Netlify
+Vercel
+AWS Lambda
+Google Cloud Functions
+Azure Functions
+Podman
+LXC
+VMware
+VirtualBox
+Cybersecurity / Networking
+TCP/IP
+HTTP/HTTPS
+DNS
+Firewalls
+VPNs
+SSL/TLS
+Wireshark
+Nmap
+Metasploit
+Burp Suite
+Ethical Hacking
+Testing / QA
+Selenium
+Cypress
+PyTest
+JUnit
+Mocha
+Jasmine
+Postman
+SoapUI
+JMeter
+HTML
+CSS
+
+# Engineering / Scientific Skills
+CAD / CAM / 3D Modeling
+Lab Techniques
+Instrumentation
+Mechanical Engineering
+Electrical Engineering
+Civil Engineering
+Chemical Engineering
+Aerospace Engineering
+Data Analysis
+Statistics
+Experimentation
+Simulation Tools (MATLAB, Simulink)
+
+# Finance / Business / Accounting
+Accounting
+Bookkeeping
+Financial Analysis
+Business Analysis
+Operations Management
+Strategic Planning
+Marketing
+SEO
+Supply Chain
+Project Management (Agile, Scrum, Kanban)
+
+# =====================
+# Creative / Arts Skills
+# =====================
+Graphic Design
+Animation
+Illustration
+Photography
+Videography
+Music Production
+Singing
+Writing
+Content Creation
+Blogging
+Copywriting
+Interior Design
+Architecture
+Fashion
+UI/UX Design
+Motion Graphics
+Podcasting
+Filmmaking
+DIY / Crafting
+3D Printing
+Culinary Arts
+
+# =====================
+# Communication / Social Skills
+# =====================
+Verbal Communication
+Written Communication
+Negotiation
+Persuasion
+Public Speaking
+Presentation Skills
+Leadership
+Team Management
+Emotional Intelligence
+Conflict Resolution
+Networking
+Relationship Building
+Cross-cultural Communication
+Diplomacy
+Etiquette
+Professional Manners
+
+# =====================
+# Cognitive / Analytical Skills
+# =====================
+Critical Thinking
+Problem-solving
+Logical Reasoning
+Creativity
+Innovation
+Strategic Thinking
+Planning
+Research
+Data Interpretation
+Decision Making
+Cognitive Flexibility
+Analytical Writing
+
+# =====================
+# Personal / Life Skills
+# =====================
+Time Management
+Productivity
+Stress Management
+Mindfulness
+Financial Literacy
+Budgeting
+Adaptability
+Resilience
+Self-learning
+Continuous Improvement
+Organization
+Prioritization
+Flexibility
+Emotional Regulation
+
+# =====================
+# Physical / Athletic Skills
+# =====================
+Sports: Football
+Basketball
+Cricket
+Tennis
+Swimming
+Athletics
+Martial Arts
+Fitness
+Yoga
+Personal Training
+Hiking
+Mountaineering
+Driving
+Navigation
+Survival Skills
+E-sports
+Drone Piloting
+
+# =====================
+# Languages / Linguistic Skills
+# =====================
+English
+Mandarin Chinese
+Hindi
+Spanish
+French
+Arabic
+Bengali
+Russian
+Portuguese
+Urdu
+Indonesian
+German
+Japanese
+Swahili
+Turkish
+Punjabi
+Korean
+Vietnamese
+Italian
+Thai
+Persian (Farsi)
+Gujarati
+Polish
+Ukrainian
+Malay
+Kannada
+Telugu
+Marathi
+Tamil
+Hausa
+Oriya (Odia)
+Burmese
+Sindhi
+Nepali
+Sinhala
+Khmer
+Dutch
+Greek
+Hebrew
+Swedish
+Norwegian
+Danish
+Finnish
+Czech
+Hungarian
+Romanian
+Bulgarian
+Serbian
+Croatian
+Slovak
+Slovenian
+Lithuanian
+Latvian
+Estonian
+Icelandic
+Irish
+Maltese
+Sign Language
+Translation
+Interpretation
+
+# =====================
+# Emerging / Cutting-edge Skills
+# =====================
+Generative AI
+Agentic AI
+GPT Models
+ChatGPT
+Claude
+Bard
+LLaMA
+Mistral
+AgentGPT
+LangChain
+AutoGPT
+BabyAGI
+Stable Diffusion
+DALL·E
+MidJourney
+DreamStudio
+MusicLM
+Whisper
+Reinforcement Learning Agents
+Autonomous AI Systems
+Blockchain
+Web3
+Smart Contracts
+Ethereum
+Solana
+Polygon
+IoT
+AR/VR/XR Development
+Robotics
+Drones
+Edge Computing
+Quantum Computing
+Low-code / No-code Platforms (AppSheet, PowerApps, Bubble.io)
+Automation (UiPath, Blue Prism)
+
+# =====================
+# Soft / Behavioral Skills
+# =====================
+Leadership
+Teamwork
+Creativity
+Innovation
+Adaptability
+Flexibility
+Communication
+Collaboration
+Negotiation
+Persuasion
+Emotional Intelligence
+Conflict Resolution
+Decision Making
+Stress Management
+Coaching
+Mentoring
+Facilitation
+Workshop Management
+Leadership in Crisis
+
+# =====================
+# Cultural / Social / Global Skills
+# =====================
+Cross-cultural Awareness
+Multicultural Collaboration
+Diplomacy
+Global Etiquette
+Cultural Sensitivity
+
+# =====================
+# Psychological / Mental / Mindfulness Skills
+# =====================
+Mindfulness
+Meditation
+Focus Training
+Cognitive Flexibility
+Emotional Regulation
+Stress Management
+Resilience
+Problem-solving under Pressure
+
+# =====================
+# Scientific / Research Skills
+# =====================
+Experimental Design
+Literature Review
+Academic Writing
+Hypothesis Testing
+Lab Safety
+Protocols
+Field Research
+Survey Design
+Computational Biology
+Bioinformatics
+Human-Computer Interaction (HCI)
+AI Ethics
+Responsible AI
+
+# =====================
+# Hobbies / Personal Interests
+# =====================
+Gardening
+Traveling
+Chess
+Puzzles
+Strategy Games
+Photography
+Filmmaking
+DIY / Crafting
+Cooking / Baking
+Maker Skills
+
+# =====================
+# Miscellaneous / Modern Skills
+# =====================
+Digital Literacy
+Social Media Management
+SEO
+Content Marketing
+Analytics
+E-sports
+Gaming Skills
+3D Printing
+Drone Piloting
+Sustainability
+Green Energy Knowledge
+
+# =====================
+# Interdisciplinary / Hybrid Skills
+# =====================
+Bioinformatics
+Computational Biology
+Computational Neuroscience
+Human-Computer Interaction (HCI)
+AI Ethics
+Responsible AI
+Tech + Business (Fintech, Healthtech)
+Design Thinking
+Product Management
+
+# =====================
+# Healthcare / Medical / Life Sciences Skills
+# =====================
+# Medical / Clinical Skills
+Patient Care
+Clinical Examination
+Medical Diagnosis
+Treatment Planning
+Surgical Procedures
+Minor Procedures
+Emergency Medicine
+First Aid
+CPR
+Anesthesia
+Pain Management
+Pediatrics
+Geriatrics
+Obstetrics
+Gynecology
+Cardiology
+Neurology
+Oncology
+Dermatology
+Psychiatry
+Vital Signs Monitoring
+Medical Imaging (X-ray, MRI, CT scan, Ultrasound)
+Lab Tests & Analysis
+
+# Pharmacy / Pharmaceutical Skills
+Drug Formulation
+Compounding
+Pharmacokinetics
+Pharmacodynamics
+Clinical Pharmacology
+Drug Safety
+Pharmacovigilance
+Prescription Analysis
+Patient Counseling
+Regulatory Compliance
+Pharmaceutical Quality Control
+Quality Assurance
+Clinical Trials
+Research
+
+# Veterinary / Animal Health Skills
+Animal Care
+Husbandry
+Diagnosis of Animal Diseases
+Treatment of Animal Diseases
+Animal Surgery
+Minor Procedures
+Vaccination
+Preventive Medicine
+Laboratory Animal Handling
+Wildlife Care
+Zoo Animal Care
+Veterinary Pharmacology
+Veterinary Toxicology
+
+# Allied Health / Lab & Research Skills
+Medical Laboratory Techniques
+Hematology
+Microbiology
+Biochemistry
+Pathology
+Histology
+Clinical Research
+Biotechnology
+Molecular Biology
+Genetics
+Immunology
+Microbiology
+Virology
+Bioinformatics
+Computational Biology
+Epidemiology
+Public Health
+Medical Writing
+Research Paper Publication
+
+# Healthcare Administration / Soft Skills
+Patient Communication
+Patient Counseling
+Medical Ethics
+Professionalism
+Healthcare Management
+Administration
+Teamwork in Multidisciplinary Teams
+Infection Control
+Hospital Hygiene
+Telemedicine
+Digital Health
