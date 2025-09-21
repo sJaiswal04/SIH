@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Internship Match - Start</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #0e0e0e;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: #bbb;
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    border: none;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="wave-canvas"></canvas>
+
+<h1>AI Internship Match</h1>
+<p>Choose an option to continue</p>
+<div class="btn-container">
+  <button class="btn" onclick="location.href='login.html'">Login</button>
+  <button class="btn" onclick="location.href='register.html'">Register</button>
+</div>
+
+<script>
+const canvas = document.getElementById('wave-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let waves = [];
+const numWaves = 3;
+
+class Wave {
+  constructor(amplitude, wavelength, speed, color, phase = 0) {
+    this.amplitude = amplitude;
+    this.wavelength = wavelength;
+    this.speed = speed;
+    this.color = color;
+    this.phase = phase;
+  }
+
+  draw(time) {
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height / 2);
+
+    for (let x = 0; x <= canvas.width; x++) {
+      const y = canvas.height / 2 + this.amplitude * Math.sin((x / this.wavelength) + (time * this.speed) + this.phase);
+      ctx.lineTo(x, y);
+    }
+
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+}
+
+function initWaves() {
+  waves = [];
+  waves.push(new Wave(30, 150, 0.002, "rgba(255,106,0,0.6)"));
+  waves.push(new Wave(40, 200, 0.0015, "rgba(238,9,121,0.5)", Math.PI / 2));
+  waves.push(new Wave(20, 100, 0.003, "rgba(255,255,255,0.3)", Math.PI));
+}
+
+function animate(time) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  waves.forEach(wave => wave.draw(time));
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initWaves();
+});
+
+initWaves();
+animate(0);
+</script>
+
+</body>
+</html>

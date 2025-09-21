@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatter Effect Lines</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #6a5af9, #f92672);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: black;
+      border: 2px solid white;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <h1>Find Your Perfect Internship. <span>Powered by AI.</span></h1>
+  <a href="login_connecting_dots.html">
+    <button>Find Internships</button>
+  </a>
+
+
+  <script>
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const colors = ["#6a5af9", "#f92672", "#22d3ee", "#a3e635", "#facc15"];
+
+    class Line {
+      constructor(x) {
+        this.x = x;
+        this.y = -100;
+        this.length = 60;         // length hogi line segment ki
+        this.speed = Math.random() * 3+2 ;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.exploded = false;
+      }
+
+      update() {
+        if (!this.exploded) {
+          this.y += this.speed;
+          if (this.y > canvas.height - this.length) {
+            this.explode();
+          }
+        }
+      }
+
+      draw() {
+        if (!this.exploded) {
+          const gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.length);
+          gradient.addColorStop(0, "transparent");
+          gradient.addColorStop(0.5, this.color);
+          gradient.addColorStop(1, "transparent");
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(this.x, this.y + this.length);
+          ctx.stroke();
+        }
+      }
+
+      explode() {
+        this.exploded = true;
+        for (let i = 0; i < 15; i++) {
+          particles.push(new Particle(this.x, canvas.height - 5, this.color));
+        }
+      }
+    }
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 6;
+        this.vy = Math.random() * -3 - 2;
+        this.alpha = 1;
+        this.size = Math.random() * 3 + 1;
+        this.color = color;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.1; // ye gravity ke liye hai
+        this.alpha -= 0.02;
+      }
+
+      draw() {
+        ctx.fillStyle = this.color.replace(")", `, ${this.alpha})`).replace("rgb", "rgba");
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    const lines = [];
+    const particles = [];
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (Math.random() < 0.01) {
+        lines.push(new Line(Math.random() * canvas.width));
+      }
+
+      lines.forEach((line, i) => {
+        line.update();
+        line.draw();
+      });
+
+      particles.forEach((p, i) => {
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) particles.splice(i, 1);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
