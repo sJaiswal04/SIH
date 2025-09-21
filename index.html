@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internship Matcher 💼</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #000;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #1E88E5;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+    .form-container input, .form-container select, .form-container button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    .internship-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      background: #f9f9f9;
+    }
+    .role {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #1E88E5;
+    }
+    .company {
+      font-weight: bold;
+    }
+    .score {
+      background: #1E88E5;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    a {
+      text-decoration: none;
+      color: #0D47A1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Internship Matcher 💼</h1>
+  
+  <div class="form-container">
+    <input type="text" id="skills" placeholder="Enter skills (e.g., Python, ML)">
+    <select id="education">
+      <option>Any</option>
+      <option>Bachelor's</option>
+      <option>Master's</option>
+      <option>PhD</option>
+    </select>
+    <input type="text" id="location" placeholder="Enter location (e.g., Delhi)">
+    <button onclick="searchInternships()">Find Internships</button>
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+    async function searchInternships() {
+      const skills = document.getElementById("skills").value;
+      const education = document.getElementById("education").value;
+      const location = document.getElementById("location").value;
+
+      const response = await fetch("http://127.0.0.1:8000/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skills, education, location, top_n: 5 })
+      });
+
+      const data = await response.json();
+      const container = document.getElementById("results");
+      container.innerHTML = "";
+
+      if (data.results.length === 0) {
+        container.innerHTML = "<p>No internships found.</p>";
+        return;
+      }
+
+      data.results.forEach(internship => {
+        const card = document.createElement("div");
+        card.className = "internship-card";
+        card.innerHTML = `
+          <div class="role">${internship.role}</div>
+          <div class="company">${internship.company}</div>
+          <div>📍 ${internship.location}</div>
+          <div>⏰ ${internship.duration}</div>
+          <div>💰 ${internship.stipend}</div>
+          <p>${internship.description}</p>
+          <div class="score">Match Score: ${internship.score}%</div><br>
+          <a href="${internship.link}" target="_blank">🔗 View Details</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
